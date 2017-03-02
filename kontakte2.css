@@ -1,0 +1,70 @@
+
+input[type=text], option[value] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+input[type=text]:focus {
+    border: 1px solid #555;
+}
+
+.geb {
+
+
+}
+.option1 {
+
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.error {
+  background:red;
+  color:rgb(255,255,255);
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+.sendbtn {
+    float: left;
+    width: 100%;
+}
+
+
+.container {
+    padding: 16px;
+}
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.h2{
+
+  size:12px;
+}
+
+
+@media screen and (max-width: auto) {
+.sendbtn {
+       width: 100%;
+    }
+}

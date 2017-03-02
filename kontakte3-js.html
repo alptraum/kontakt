@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<style>
+#ausgabetext { padding:20px; font-weight:bold; display:block; color:#88b347; }
+</style>
+<link rel="stylesheet" href="kontakte2.css">
+<script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+<script type="text/javascript">
+/*
+var _e = function( id ) {
+  return document.getElementById( id );
+}
+*/
+  window.onload = function(){
+    $('#myForm').on('submit', function(event) {
+      event.preventDefault();
+      var ausgabe;
+      var vname = $("#myForm" , "#Vorname").val;  //jquery konvertiert
+      var nname = document.forms["myForm"]["Nachname"].value;
+      var geschlecht = document.forms["myForm"]["Geschlecht"].value;
+      if (vname == "" || nname == ""  ) {
+          alert("Bitte füllen Sie genau ein !");
+          $('#Vorname').addClass('error');
+          $('#Nachname').addClass('error');
+          $('#Geschlecht').addClass('error');
+          return false;
+      }else {
+          $('#Vorname').removeClass('error');
+          $('#Nachname').removeClass('error');
+          $('#Geschlecht').removeClass('error');
+          alert("Wir haben Ihre Nachricht erhalten und werden diese umgehend bearbeiten.");
+          ausgabe = "Wir haben Ihre Nachricht erhalten und werden diese umgehend bearbeiten.";
+      }
+      document.getElementById("ausgabetext").innerHTML = ausgabe;
+    });
+var i, oOption, monate;
+
+
+// erzeuge Optionen für Tage 1-31
+for ( i=1; i<=31; i++ ) {
+  oOption = document.createElement( 'option' );
+  oOption.innerHTML = i;
+  oOption.value = i;
+  $( '#tag' ).append( oOption );
+}
+
+monate = ['Jänner','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+for ( i=0; i<=11; i++ ) {
+  oOption = document.createElement( 'option' );
+  oOption.innerHTML = monate[i];
+  oOption.value = i+1;
+  $( '#monat' ).append( oOption );
+}
+
+for ( i=2017; i>=1900; i-- ) {
+  oOption = document.createElement( 'option' );
+  oOption.innerHTML = i;
+  oOption.value = i;
+  $( '#jahr' ).append( oOption );
+}
+
+}
+</script>
+<body>
+
+<h2>Kontakt Formular</h2>
+
+<form id="myForm" name="myForm" style="border:1px solid #ccc">
+  <div class="container">
+<label><b>Anrede:</b>
+<div class="option1">
+
+</label><select id ="Geschlecht"class="Geschlecht" name="">
+      <option value="">Bitte Wählen</option>
+      <option value="Frau">Frau</option>
+      <option value="Herr">Herr</option>
+    </select>
+</div>
+<br>
+    <label><b>Titel</b></label>
+    <input type="text" placeholder="Titel" name="Titel">
+
+    <label><b>Vorname*</b></label>
+    <input type="text" id="Vorname" placeholder="Vorname" name="Vorname" >
+
+    <label><b>Nachname*</b></label>
+    <input type="text" id="Nachname" placeholder="Nachname" name="Nachname" >
+
+    <label><b>Geb. Datum*</b></label>
+<div class="option1">
+
+  			<select id="tag"><option value="">Tag</option></select> .
+  			<select id="monat"><option value="">Monat</option></select> .
+  			<select id="jahr"><option>Jahr</option></select><br>
+</div>
+
+<label><b>Land</b></label>
+<input type="text" placeholder="Land" name="Land">
+
+<label><b>PLZ</b></label>
+<input type="text" placeholder="Postleitzahl" name="Postleitzahl">
+
+<label><b>Ort</b></label>
+<input type="text" placeholder="Ort" name="Ort">
+
+<label><b>Adresse</b></label>
+<input type="text" placeholder="Adresse" name="Adresse">
+
+<label><b>Tel NR.</b></label>
+<input type="text" placeholder="Telefonnummer" name="Telefonnummer">
+
+
+
+<label><b></b></label>
+    <input type="checkbox" checked="checked"> Newsletter
+
+    <div id="ausgabetext" class=""></div>
+
+
+    <div class="clearfix">
+      <button type="submit" id="sendbtn" class="sendbtn">Senden</button>
+
+    </div>
+
+  </div>
+</form>
+
+</body>
+</html>
